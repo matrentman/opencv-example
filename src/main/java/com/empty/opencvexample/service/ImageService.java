@@ -20,7 +20,6 @@ public class ImageService {
         Imgcodecs imageCodecs = new Imgcodecs();
 
         //Reading the Image from the file
-        //String imagePath = "C:\\Users\\mikea\\aidev\\opencv-example\\src\\main\\resources\\dog-bike-car.jpg";
         String imagePath = "C:/Users/mikea/aidev/opencv-example/src/main/resources/child-blur.png";
         Mat image = imageCodecs.imread(imagePath);
 
