@@ -18,9 +18,11 @@ public class BlurController {
     @RequestMapping(value = "/blurred", method = RequestMethod.GET)
     public ResponseEntity<String> detectIfImageIsBlurred() {
 
-        Boolean imageStatus = imageService.isBlurred();
+        Double blurValue;
+        String imagePath = "C:/Users/mikea/aidev/opencv-example/src/main/resources/child-blur.png";
+        blurValue = imageService.isBlurred(imagePath);
 
-        return new ResponseEntity<>(imageStatus==Boolean.TRUE?"Blurred":"Not Blurred", HttpStatus.OK);
+        return new ResponseEntity<>("Blur Value = " + blurValue, HttpStatus.OK);
     }
 
 }

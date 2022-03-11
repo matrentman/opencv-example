@@ -1,5 +1,6 @@
 package com.empty.opencvexample.service;
 
+import nu.pattern.OpenCV;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -10,17 +11,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ImageService {
-    public Boolean isBlurred() {
-        Boolean isBlurred = null;
+    public Double isBlurred(String imagePath) {
+        Double blurValue = null;
 
         //Loading the OpenCV core library
-        System.loadLibrary( Core.NATIVE_LIBRARY_NAME );
+        //System.loadLibrary( Core.NATIVE_LIBRARY_NAME );
+        OpenCV.loadLocally();
 
         //Instantiating the Imagecodecs class
         Imgcodecs imageCodecs = new Imgcodecs();
 
         //Reading the Image from the file
-        String imagePath = "C:/Users/mikea/aidev/opencv-example/src/main/resources/child-blur.png";
         Mat image = imageCodecs.imread(imagePath);
 
         Mat destination = new Mat();
@@ -45,8 +46,8 @@ public class ImageService {
         MatOfDouble dev = new MatOfDouble ();
 
         Core.meanStdDev(lap, mean, dev);
-        double value = dev.get(0,0)[0];
+        blurValue = dev.get(0,0)[0];
 
-        return value > 1.0?Boolean.FALSE:Boolean.TRUE;
+        return blurValue;
     }
 }

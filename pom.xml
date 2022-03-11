@@ -33,10 +33,15 @@
 			<scope>test</scope>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>opencv</groupId>-->
+<!--			<artifactId>opencv</artifactId>-->
+<!--			<version>4.0.0-0</version>-->
+<!--		</dependency>-->
 		<dependency>
-			<groupId>opencv</groupId>
+			<groupId>org.openpnp</groupId>
 			<artifactId>opencv</artifactId>
-			<version>4.0.0-0</version>
+			<version>3.4.2-1</version>
 		</dependency>
 	</dependencies>
 
